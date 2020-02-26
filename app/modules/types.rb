@@ -8,6 +8,3 @@ module Types
     Dry.Types().Instance(::PayloadForCreateTransaction) |
     Dry.Types().Constructor(::PayloadForCreateTransaction)
 end
-
-NUMBER = Dry::Types['strict.string'].constrained(format: /^\d*$/i) | Dry::Types['coercible.float']
-NUMBER = Dry::Types['coercible.float']
