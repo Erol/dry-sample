@@ -1,0 +1,23 @@
+en:
+  # dry_validation:
+  #   errors:
+  #     none?:
+  #       value:
+  #         device_value: 'cannot be nil'
+  api:
+    errors:
+      duplicate_transaction:
+        code: 'DUPLICATE_TRANSACTION'
+        title: 'Duplicate transaction not allowed.'
+      invalid_amount:
+        code: 'INVALID_AMOUNT'
+        title: 'Amount is invalid.'
+      invalid_email:
+        code: 'INVALID_EMAIL'
+        title: 'Email is invalid.'
+      missing_amount:
+        code: 'MISSING_AMOUNT'
+        title: 'Amount is required.'
+      missing_email:
+        code: 'MISSING_EMAIL'
+        title: 'Email is required.'

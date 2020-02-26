@@ -1,0 +1,23 @@
+default: &default
+  adapter: mysql2
+  encoding: latin1
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: <%= ENV['DATABASE_HOST'] %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  port: <%= ENV['DATABASE_PORT'] %>
+
+development:
+  <<: *default
+  database: sample_development
+  pool: 10
+
+test:
+  <<: *default
+  database: sample_test
+
+production:
+  <<: *default
+  database: sample_production
+  username: sample
+  password: <%= ENV['SAMPLE_DATABASE_PASSWORD'] %>

@@ -1,0 +1,37 @@
+version: '3.7'
+
+services:
+  bundler:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: bundler
+    volumes:
+      - .:/app:delegated
+      - cache:/cache
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: app
+    environment:
+      - DATABASE_HOST
+      - DATABASE_USERNAME
+      - DATABASE_PASSWORD
+      - DATABASE_PORT
+      - RAILS_ENV
+      - RAILS_MAX_THREADS
+
+    volumes:
+      - .:/app
+    depends_on:
+      - app_db
+  app_db:
+    image: mysql:5.7
+    environment:
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=password
+
+volumes:
+  cache:
